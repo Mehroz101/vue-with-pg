@@ -1,0 +1,45 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+lerna-debug.log
+.log
+logs/
+*.log
+
+# Database files
+*.sqlite
+*.sqlite3
+db.sqlite
+db.sqlite3
+/sequelize-meta.json
+/database.json
+
+# Compiled files
+dist/
+build/
+
+# VS Code settings
+.vscode/
+
+# MacOS & Linux system files
+.DS_Store
+Thumbs.db
+
+# Git metadata
+.git/
+
+# PM2 logs
+pm2.log
+pm2.pid
