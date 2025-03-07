@@ -6,6 +6,7 @@
       "target": "ES6",
       "noImplicitAny": true,
       "moduleResolution": "node",
+      "resolveJsonModule": true,   // ✅ Add this line
       "sourceMap": true,
       "outDir": "api",
       "baseUrl": ".",

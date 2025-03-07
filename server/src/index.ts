@@ -1,6 +1,3 @@
-
-
-
 import express from "express";
 import cors from "cors";
 import User from "./models/user";
@@ -25,7 +22,7 @@ app.post("/api/register",async (req, res) => {
       }
 })
 app.get("/", (req, res) => {    
-    res.send("Hello World!");
+    res.send("Hello MOJI!");
 });
 
 app.listen(3000, () => {
