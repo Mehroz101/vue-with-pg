@@ -17,7 +17,7 @@ interface RegisterForm {
 }
 const RegisterFormMutation = useMutation({
     mutationFn: (formData : RegisterForm) => {
-      return axios.post('http://localhost:3000/api/register', formData)
+      return axios.post('https://vue-with-pg.vercel.app/api/register', formData)
     },
     onSuccess:(data) =>{
         console.log(data)

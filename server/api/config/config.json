@@ -1,23 +1,26 @@
 {
     "development": {
         "username": "postgres",
-        "password": "123",
-        "database": "UserData",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+        "password": "mehroz",
+        "database": "postgres",
+        "host": "db.smkdljadkginfwbwnodr.supabase.co",
+        "dialect": "postgres",
+        "ssl": true
     },
     "test": {
         "username": "postgres",
-        "password": "123",
-        "database": "UserData",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+        "password": "mehroz",
+        "database": "postgres",
+        "host": "db.smkdljadkginfwbwnodr.supabase.co",
+        "dialect": "postgres",
+        "ssl": true
     },
     "production": {
         "username": "postgres",
-        "password": "123",
-        "database": "UserData",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+        "password": "mehroz",
+        "database": "postgres",
+        "host": "db.smkdljadkginfwbwnodr.supabase.co",
+        "dialect": "postgres",
+        "ssl": true
     }
 }

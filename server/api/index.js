@@ -16,9 +16,19 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const user_1 = __importDefault(require("./models/user"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+}));
 app.use(express_1.default.json());
+const databaseUrl = process.env.DATABASE_URL;
+if (!databaseUrl) {
+    throw new Error("❌ DATABASE_URL is not defined in .env file");
+}
 app.post("/api/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { fullname, email, password } = req.body;
@@ -36,7 +46,5 @@ app.post("/api/register", (req, res) => __awaiter(void 0, void 0, void 0, functi
 app.get("/", (req, res) => {
     res.send("Hello MOJI!");
 });
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+exports.default = app;
 //# sourceMappingURL=index.js.map

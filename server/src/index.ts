@@ -6,7 +6,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+  }
+));
 app.use(express.json())
 const databaseUrl = process.env.DATABASE_URL;
 
