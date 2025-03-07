@@ -2,9 +2,17 @@ import express from "express";
 import cors from "cors";
 import User from "./models/user";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json())
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  throw new Error("❌ DATABASE_URL is not defined in .env file");
+}
 app.post("/api/register",async (req, res) => {
     try {
         const { fullname, email, password } = req.body;
@@ -25,6 +33,4 @@ app.get("/", (req, res) => {
     res.send("Hello MOJI!");
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+export default app;
