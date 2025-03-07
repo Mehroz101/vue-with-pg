@@ -38,5 +38,8 @@ app.post("/api/register",async (req, res) => {
 app.get("/", (req, res) => {    
     res.send("Hello MOJI!");
 });
-
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
 export default app;
