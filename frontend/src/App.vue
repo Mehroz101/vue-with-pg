@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import Layout from './components/layout.vue';
 import RegistrationForm from './components/RegistrationForm.vue';
 </script>
 
 <template>
-  <RegistrationForm/>
+<Layout/>
 </template>
 
 <style scoped>

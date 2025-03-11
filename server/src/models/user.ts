@@ -4,8 +4,11 @@ import sequelize from "../config/database"; // ✅ Import database connection
 class User extends Model {
   public id!: number;
   public name!: string;
+
+public username! : string;
   public email!: string;
   public password!: string;
+
 }
 
 User.init(
@@ -18,6 +21,11 @@ User.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    username:{
+      type:DataTypes.STRING,
+      allowNull:false,
+      unique:true
     },
     email: {
       type: DataTypes.STRING,

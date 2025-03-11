@@ -4,22 +4,15 @@ import axios from 'axios';
 import { ref } from 'vue';
 
 const form = ref({
-    fullname: '',
     username:'',
-    email: '',
-    password: '',
-    cPassword: ''
+    password: ''
 })
-interface RegisterForm {
-    fullname: string,
+interface LoginForm {
     username:string,
-    email: string,
-    password: string,
-    cPassword: string
 }
-const RegisterFormMutation = useMutation({
-    mutationFn: (formData : RegisterForm) => {
-      return axios.post('http://localhost:4000/api/register', formData)
+const LoginFormMutation = useMutation({
+    mutationFn: (formData : LoginForm) => {
+      return axios.post('http://localhost:4000/api/login', formData)
     },
     onSuccess:(data) =>{
         console.log(data)
@@ -29,37 +22,22 @@ const RegisterFormMutation = useMutation({
     }
 })
 const handleSubmit = () => {
-
-    if(form.value.password !== form.value.cPassword){
-        alert('Passwords do not match')
-        return 
-    }
-    RegisterFormMutation.mutate( form.value )
+    console.log(form.value)
+    LoginFormMutation.mutate( form.value )
 }
 </script>
 <template>
-    <h1>Registration Form</h1>
-    <form @submit.prevent="handleSubmit" >
+    <h1>Login Form</h1>
+    <form @submit.prevent="handleSubmit">
         <div class="input-box">
-            <label for="fullname">Full Name</label>
-            <input type="text" name="fullname" v-model.trim="form.fullname">
-        </div>
-        <div class="input-box">
-            <label for="fullname">User Name</label>
+            <label for="username">User Name</label>
             <input type="text" name="username" v-model.trim="form.username">
         </div>
-        <div class="input-box">
-            <label for="email">Email</label>
-            <input type="email" name="email" v-model.trim="form.email">
-        </div>
+      
         <div class="input-box">
             <label for="password">Password</label>
             <input type="password" name="password" v-model.trim="form.password">
-        </div>
-        <div class="input-box">
-            <label for="cPassword">Confirm Password</label>
-            <input type="password" name="cPassword" v-model.trim="form.cPassword">
-        </div>
+        </div>  
         <div class="button">
             <button>Submit</button>
         </div>
